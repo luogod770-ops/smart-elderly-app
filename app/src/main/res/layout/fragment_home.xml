@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- SOS按钮 -->
+        <Button
+            android:id="@+id/btn_sos"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/spacing_xxl"
+            android:backgroundTint="@color/red"
+            android:text="@string/sos"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_xxxl"
+            android:textStyle="bold"
+            app:cornerRadius="75dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:text="点击发送紧急求助"
+            android:textColor="@color/text_hint"
+            android:textSize="@dimen/text_size_sm" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

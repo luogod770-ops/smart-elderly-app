@@ -1,0 +1,170 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: smart-elderly-community
+  
+  # 数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smart_elderly?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: your_password
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall,slf4j
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: admin
+        login-password: admin
+  
+  # Redis配置
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    timeout: 30000ms
+  
+  # JPA配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    open-in-view: false
+  
+  # 文件上传配置
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+      location: ${java.io.tmpdir}
+  
+  # Jackson配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+# MyBatis Plus配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  type-aliases-package: com.smartelderly.community.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# JWT配置
+jwt:
+  secret: smart-elderly-community-jwt-secret-key-2024
+  expiration: 604800000 # 7天
+  header: Authorization
+  prefix: Bearer
+
+# 阿里云配置
+aliyun:
+  oss:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    accessKeyId: YOUR_ACCESS_KEY_ID
+    accessKeySecret: YOUR_ACCESS_KEY_SECRET
+    bucketName: smart-elderly
+    fileHost: files/
+  sms:
+    accessKeyId: YOUR_ACCESS_KEY_ID
+    accessKeySecret: YOUR_ACCESS_KEY_SECRET
+    signName: 智慧养老
+    templateCode: SMS_123456789
+
+# 腾讯云配置
+tencent:
+  im:
+    sdkAppId: YOUR_SDK_APP_ID
+    secretKey: YOUR_SECRET_KEY
+    adminUserId: admin
+    expireTime: 604800
+
+# 支付配置
+alipay:
+  appId: YOUR_APP_ID
+  privateKey: YOUR_PRIVATE_KEY
+  publicKey: ALIPAY_PUBLIC_KEY
+  notifyUrl: http://your-domain.com/api/payment/alipay/notify
+  returnUrl: http://your-domain.com/payment/success
+
+wechat:
+  pay:
+    appId: YOUR_APP_ID
+    mchId: YOUR_MCH_ID
+    apiKey: YOUR_API_KEY
+    apiV3Key: YOUR_API_V3_KEY
+    certPath: YOUR_CERT_PATH
+    notifyUrl: http://your-domain.com/api/payment/wechat/notify
+
+# ctwing平台配置
+ctwing:
+  appKey: YOUR_APP_KEY
+  appSecret: YOUR_APP_SECRET
+  apiUrl: https://api.ctwing.cn
+  masterKey: YOUR_MASTER_KEY
+
+# 日志配置
+logging:
+  level:
+    com.smartelderly: debug
+    org.springframework: info
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n'
+
+# Swagger配置
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  packages-to-scan: com.smartelderly.community.controller

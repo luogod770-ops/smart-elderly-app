@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_page">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_md">
+
+        <!-- 标题栏 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/house_binding"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_xl"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/spacing_xl"/>
+
+        <!-- 城市选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择城市"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_sm"
+            android:layout_marginBottom="@dimen/spacing_xs"/>
+
+        <Spinner
+            android:id="@+id/spinner_city"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_md"
+            android:background="@drawable/bg_edit_text"
+            android:layout_marginBottom="@dimen/spacing_md"/>
+
+        <!-- 社区选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择社区"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_sm"
+            android:layout_marginBottom="@dimen/spacing_xs"/>
+
+        <Spinner
+            android:id="@+id/spinner_community"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_md"
+            android:background="@drawable/bg_edit_text"
+            android:layout_marginBottom="@dimen/spacing_md"/>
+
+        <!-- 小区选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择小区"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_sm"
+            android:layout_marginBottom="@dimen/spacing_xs"/>
+
+        <Spinner
+            android:id="@+id/spinner_complex"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_md"
+            android:background="@drawable/bg_edit_text"
+            android:layout_marginBottom="@dimen/spacing_md"/>
+
+        <!-- 楼栋选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择楼栋"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_sm"
+            android:layout_marginBottom="@dimen/spacing_xs"/>
+
+        <Spinner
+            android:id="@+id/spinner_building"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_md"
+            android:background="@drawable/bg_edit_text"
+            android:layout_marginBottom="@dimen/spacing_lg"/>
+
+        <!-- 房号信息 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/spacing_sm"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="单元"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_size_sm"
+                    android:layout_marginBottom="@dimen/spacing_xs"/>
+
+                <EditText
+                    android:id="@+id/et_unit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height_md"
+                    android:background="@drawable/bg_edit_text"
+                    android:hint="请输入单元号"
+                    android:inputType="number"
+                    android:paddingStart="@dimen/spacing_md"
+                    android:paddingEnd="@dimen/spacing_md"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="楼层"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_size_sm"
+                    android:layout_marginBottom="@dimen/spacing_xs"/>
+
+                <EditText
+                    android:id="@+id/et_floor"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height_md"
+                    android:background="@drawable/bg_edit_text"
+                    android:hint="请输入楼层"
+                    android:inputType="number"
+                    android:paddingStart="@dimen/spacing_md"
+                    android:paddingEnd="@dimen/spacing_md"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/spacing_xl">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="房号"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_sm"
+                android:layout_marginBottom="@dimen/spacing_xs"/>
+
+            <EditText
+                android:id="@+id/et_room_number"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_md"
+                android:background="@drawable/bg_edit_text"
+                android:hint="请输入房号"
+                android:inputType="text"
+                android:paddingStart="@dimen/spacing_md"
+                android:paddingEnd="@dimen/spacing_md"/>
+
+        </LinearLayout>
+
+        <!-- 提交按钮 -->
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_lg"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="提交申请"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_lg"
+            android:textStyle="bold"/>
+
+        <!-- 我的房屋 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xxl"
+            android:text="@string/my_house"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_md"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/spacing_md"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_my_houses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

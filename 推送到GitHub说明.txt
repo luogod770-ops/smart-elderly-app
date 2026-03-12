@@ -1,0 +1,68 @@
+====================================================================
+智慧养老社区APP - 推送到GitHub说明
+====================================================================
+
+【准备工作】
+
+1. 确保已在GitHub创建仓库
+   - 访问: https://github.com/new
+   - 仓库名: smart-elderly-app
+   - 不要初始化README
+
+2. 复制仓库地址,格式如:
+   https://github.com/你的用户名/smart-elderly-app.git
+
+
+【推送方法】
+
+方法一: 双击运行 "一键推送.bat" (推荐)
+- 会自动打开PowerShell脚本
+- 按照提示输入GitHub仓库地址
+- 完成登录验证
+- 等待推送完成
+
+
+方法二: 手动执行命令
+1. 打开PowerShell或命令提示符
+2. 进入项目目录:
+   cd c:\Users\jd\CodeBuddy\20260311175444
+3. 执行以下命令:
+
+   git remote add origin https://github.com/你的用户名/smart-elderly-app.git
+   git branch -M main
+   git push -u origin main
+
+
+【推送成功后】
+
+1. 访问您的GitHub仓库
+2. 点击 "Actions" 标签
+3. 等待APK构建完成 (5-10分钟)
+4. 构建完成后,下载APK文件
+
+APK下载位置:
+Artifacts → app-debug-apk
+
+
+【常见问题】
+
+Q: 提示 "Authentication failed"
+A: 使用GitHub Personal Access Token代替密码
+
+Q: 提示 "Repository not found"
+A: 检查仓库地址是否正确
+
+Q: 构建失败
+A: 在Actions页面查看详细日志
+
+
+【详细说明】
+
+如需详细帮助,请查看:
+- FINAL_STEP.md - 完整操作指南
+- USE_GITHUB_ACTIONS.md - GitHub Actions使用指南
+
+
+====================================================================
+现在,请双击运行 "一键推送.bat" 开始推送!
+====================================================================
